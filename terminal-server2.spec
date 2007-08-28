@@ -210,7 +210,6 @@ EOF
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Terminal Server Administration
 Comment=Setup/Administer Terminal Server and clients
 Exec=/usr/sbin/draktermserv
