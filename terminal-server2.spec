@@ -213,7 +213,7 @@ cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop << EOF
 Name=Terminal Server Administration
 Comment=Setup/Administer Terminal Server and clients
 Exec=/usr/sbin/draktermserv
-Icon=other_configuration.png
+Icon=other_configuration
 Terminal=false
 Type=Application
 StartupNotify=true
