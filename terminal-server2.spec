@@ -17,7 +17,6 @@ Patch0: %{rname}-mdk-mods.patch
 License: GPL
 URL:	http://qa.mandriva.com/twiki/bin/view/Main/TerminalServer2
 Group:	Networking/Other
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires: nfs-utils tftp-server dhcp-server 
 Requires: mkinitrd-net >= 1.10-26mdk
 Requires: draktermserv usermode
