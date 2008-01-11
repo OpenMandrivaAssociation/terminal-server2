@@ -195,17 +195,6 @@ ln -s /tmp/random-seed $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/random-seed
 rm -f $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/X11/prefdm
 
 # menu item for draktermserv, since it's not in mcc
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} << EOF
-?package(%{name}):\
-needs="x11" \
-section="System/Configuration/Other" \
-title="Terminal Server Administration" \
-longtitle="Setup/Administer Terminal Server and clients." \
-command="/usr/sbin/draktermserv" \
-icon="other_configuration.png" \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop << EOF
@@ -311,7 +300,6 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/draktermserv
 %{sroot}/mnt/cdrom
 %{sroot}/mnt/floppy
-%{_menudir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 
 
