@@ -3,9 +3,9 @@
 %define version 1.5
 %define release %mkrel 8
 #client system root overlay for unionfs
-%define sroot %{_localstatedir}/%{rname}/common 
-%define nroot %{_localstatedir}/%{rname}/nfs
-%define croot %{_localstatedir}/%{rname}/clients
+%define sroot %{_localstatedir}/lib/%{rname}/common 
+%define nroot %{_localstatedir}/lib/%{rname}/nfs
+%define croot %{_localstatedir}/lib/%{rname}/clients
 
 Summary: Terminal Server - Unionfs version
 Name: %{name}
@@ -80,7 +80,7 @@ mkdir -p $RPM_BUILD_ROOT/sbin
 mkdir -p $RPM_BUILD_ROOT%{sroot}/sbin
 mkdir -p $RPM_BUILD_ROOT%{_sbindir}
 mkdir -p $RPM_BUILD_ROOT%{sroot}%{_sbindir}
-mkdir -p $RPM_BUILD_ROOT%{sroot}%{_localstatedir}
+mkdir -p $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/lib
 mkdir -p $RPM_BUILD_ROOT%{sroot}/mnt/cdrom
 mkdir -p $RPM_BUILD_ROOT%{sroot}/mnt/floppy
 
@@ -109,8 +109,8 @@ EOF
 touch $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/modprobe.preload
 touch $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/rc.readonly
 ln -s /tmp/xorg.conf.test $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/X11/xorg.conf.test
-ln -s /tmp $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/xkb
-ln -s /tmp $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/gdm
+ln -s /tmp $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/lib/xkb
+ln -s /tmp $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/lib/gdm
 
 # client init scripts
 install -d $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/rc.d/init.d
@@ -189,7 +189,7 @@ ln -sf consolehelper $RPM_BUILD_ROOT%{_bindir}/draktermserv
 touch $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/raidtab
 
 # random-seed file
-ln -s /tmp/random-seed $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/random-seed 
+ln -s /tmp/random-seed $RPM_BUILD_ROOT%{sroot}%{_localstatedir}/lib/random-seed 
 
 # installed but not packaged files
 rm -f $RPM_BUILD_ROOT%{sroot}%{_sysconfdir}/X11/prefdm
@@ -239,7 +239,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%dir %{_localstatedir}/%{rname}
+%dir %{_localstatedir}/lib/%{rname}
 %dir %{sroot}
 %dir %{sroot}%{_sysconfdir}
 %dir %{sroot}%{_sysconfdir}/X11
@@ -255,7 +255,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{nroot}%{_sysconfdir}/rc.d/rc5.d
 %dir %{sroot}%{_sysconfdir}/sysconfig
 %dir %{sroot}%{_var}
-%dir %{sroot}%{_localstatedir}
+%dir %{sroot}%{_localstatedir}/lib
 %dir %{sroot}%{_usr}
 %dir %{sroot}%{_usr}/share
 %dir %{sroot}%{_usr}/share/config
@@ -286,9 +286,9 @@ rm -rf $RPM_BUILD_ROOT
 %{sroot}%{_sysconfdir}/profile.d/tmpdir.sh
 %{sroot}%{_sysconfdir}/X11/xorg.conf.test
 %config(noreplace) %{sroot}%{_sysconfdir}/X11/xorg.conf
-%{sroot}%{_localstatedir}/xkb
-%{sroot}%{_localstatedir}/gdm
-%{sroot}%{_localstatedir}/random-seed
+%{sroot}%{_localstatedir}/lib/xkb
+%{sroot}%{_localstatedir}/lib/gdm
+%{sroot}%{_localstatedir}/lib/random-seed
 %{nroot}%{_sysconfdir}/rc.d/rc3.d/S*
 %{nroot}%{_sysconfdir}/rc.d/rc5.d/S*
 %dir %{_sysconfdir}/terminal-server
