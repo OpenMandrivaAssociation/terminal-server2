@@ -307,3 +307,104 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/%{name}.desktop
 
 
+
+
+%changelog
+* Sat Aug 02 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.5-11mdv2009.0
++ Revision: 261485
+- rebuild
+
+* Wed Jul 30 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.5-10mdv2009.0
++ Revision: 254387
+- rebuild
+- drop old menu
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+    - adapt to %%_localstatedir now being /var instead of /var/lib (#22312)
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 1.5-8mdv2008.1
++ Revision: 136535
+- restore BuildRoot
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - kill re-definition of %%buildroot on Pixel's request
+    - kill explicit icon extension
+    - kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+
+* Thu Jan 11 2007 Stew Benedict <sbenedict@mandriva.com> 1.5-8mdv2007.0
++ Revision: 107535
+- Requires draktermserv now, not drakxtools
+
+* Tue Jan 02 2007 Stew Benedict <sbenedict@mandriva.com> 1.5-7mdv2007.1
++ Revision: 103128
+- Import terminal-server2
+
+* Tue Jan 02 2007 Stew Benedict <sbenedict@mandriva.com> 1.5-7mdv2007.1
+- drakTermServ -> draktermserv (#27835)
+
+* Tue Aug 29 2006 Stew Benedict <sbenedict@mandriva.com> 1.5-6mdv2007.0
+- better URL (Bug #24780)
+
+* Fri Aug 25 2006 Stew Benedict <sbenedict@mandriva.com> 1.5-5mdv2007.0
+- xdg menu
+
+* Thu Mar 16 2006 Stew Benedict <sbenedict@mandriva.com> 1.5-4mdk
+- add readonly-root
+- update P0: update fstab with current cdrom,floppy syntax
+  drop /proc from fstab - system rc.sysinit mounts it twice, 
+  shows as [ FAILED ] in boot sequence
+
+* Mon Mar 06 2006 Stew Benedict <sbenedict@mandriva.com> 1.5-3mdk
+- update pam config
+
+* Mon Dec 05 2005 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-2mdk
+- Requires, update init script for unionfs issue
+
+* Mon Dec 05 2005 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-1mdk
+- first pass at new approach: unionfs over nfs
+
+* Thu Mar 03 2005 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-24mdk
+- misc mods to deal with changes in init scripts, packages
+  * new fstab, some new $$CLIENT$$ symlinks
+  * sync udev script
+  * include dhcpd.conf.pxe.include
+  * rename varrun init script to terminal-server and update
+
+* Mon Dec 13 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-23mdk
+- XF86Config-4 -> xorg.conf, Keyboard -> keyboard
+
+* Mon Dec 13 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-22mdk
+- more fstab entries
+
+* Thu Dec 09 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-21mdk
+- udev init script in runlevel 3,5
+- remove /lib/dev-state from fstab$$CLIENT$$ (pixel)
+- don't include shadow$$CLIENT$$, just causes confusion (pixel)
+
+* Wed Sep 01 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-20mdk
+- mirror udev initscript so we can write somewhere besides /dev.old
+- replace forbidden name
+
+* Sat Aug 21 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-19mdk
+- removed devfsd requires, client link for /var/lib/random-seed
+
+* Thu Mar 18 2004 David Baudens <baudens@mandrakesoft.com> 1.5-18mdk
+- Fix menu (icon)
+
+* Tue Feb 03 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-17mdk
+- /lib/dev-state, /var/lib/gnome/desktop as tmpfs (Francisco Javier Felix)
+
+* Mon Feb 02 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-16mdk
+- /var/tmp as tmpfs (let KDE run)
+
+* Thu Jan 29 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-15mdk
+- more /var/lib/*dm mount points
+- sync with current *dm config files
+- create /var/run/console with client initscript
+- /etc/qt_plugins_3.2* symlinks for clients to make mdkkdm happy
+
+* Tue Jan 27 2004 Stew Benedict <sbenedict@mandrakesoft.com> 1.5-14mdk
+- add /var/lib/gdm as tmpfs to fstab or gdm won't run
+
