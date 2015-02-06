@@ -1,7 +1,7 @@
 %define name terminal-server2
 %define rname terminal-server
 %define version 1.5
-%define release %mkrel 11
+%define release 12
 #client system root overlay for unionfs
 %define sroot %{_localstatedir}/lib/%{rname}/common 
 %define nroot %{_localstatedir}/lib/%{rname}/nfs
